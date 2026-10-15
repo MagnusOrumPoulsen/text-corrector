@@ -1,0 +1,22 @@
+THIRD-PARTY SOFTWARE IN THE TEXT CORRECTOR
+==========================================
+
+The Text Corrector itself is MIT licensed (licenses\TextCorrector-LICENSE.txt).
+
+Ollama (the built-in language model engine)   MIT License   https://github.com/ollama/ollama
+    The license text is in licenses\ollama-LICENSE.txt.
+    The language models you download are separate works with their own licenses;
+    see the model's page at https://ollama.com/library.
+
+Python                                        PSF License   https://www.python.org
+Tcl/Tk (window toolkit, part of Python)       BSD-style     https://www.tcl.tk
+httpx                                         BSD-3-Clause  https://www.python-httpx.org
+pyperclip                                     BSD-3-Clause  https://github.com/asweigart/pyperclip
+rich                                          MIT           https://github.com/Textualize/rich
+Pillow                                        HPND          https://python-pillow.org
+pynput                                        LGPL-3.0      https://github.com/moses-palmer/pynput
+pystray                                       LGPL-3.0      https://github.com/moses-palmer/pystray
+
+pynput and pystray are licensed under the GNU Lesser General Public License v3. The
+complete source code of this program, which can be used to rebuild it with other
+versions of those libraries, is in the "source" folder next to this file.
