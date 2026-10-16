@@ -215,5 +215,6 @@ diagnostics** on the Home page and paste the result into the issue.
 
 ## Known bugs:
 
-- Right clicking the tray icon stops the program with an error.
+- Some text can fool the model and also pass the text check afterwards. For instance, correcting "Lets prooceed in danish" produced: "Lad os fortsætte på dansk."
+- Right clicking the tray icon can stop the program with an error.
 - New installations sometimes can’t run the engine on first try, but after closing the program and trying again it works.
