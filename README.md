@@ -1,9 +1,9 @@
 # Text Corrector
 
-A small Windows tool that fixes typos using a local language model. Select some text in any
+A simple Windows tool that fixes typos, spelling mistakes, grammar etc. using a local language model. Select some text in any
 program or window, press a hotkey, and a moment later the corrected text is ready.
-Everything runs on your own computer, using [Ollama](https://ollama.com) as the engine. After the
-one-time download of a language model, nothing you correct ever leaves your PC.
+Everything runs on your own computer, using [Ollama](https://ollama.com) as the engine. After a
+one-time download of a language model the whole thing is run offline.
 
 ![Text Corrector in action](docs/images/showcase.gif)
 
@@ -33,8 +33,10 @@ keeps getting wrong is left as it was (the activity log says so) instead of losi
 If the model's answer does not look like a plain correction (for example extra commentary or
 changed line breaks), nothing is pasted for that part and the program tells you why.
 
-## Screenshots
+## Showcase and Screenshots
 
+
+![The Home page](docs/images/showcase/.gif)
 ![The Home page](docs/images/main.png)
 ![The Models tab](docs/images/models.png)
 ![The Settings tab](docs/images/Settings.png)
