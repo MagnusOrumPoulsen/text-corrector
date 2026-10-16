@@ -3,33 +3,34 @@
 A simple Windows tool that fixes typos, spelling mistakes, grammar etc. using a local language model. Select some text in any
 program or window, press a hotkey, and a moment later the corrected text is ready.
 Everything runs on your own computer, using [Ollama](https://ollama.com) as the engine. After a
-one-time download of a language model the whole thing is run offline.
+one-time download of one of the suggested language model the whole thing is run offline. 
+You can also download and run custom Ollama language models that are not among the suggested, although this is untested.
 
 ![Text Corrector in action](docs/images/showcase.gif)
 
 ## Download and use
 
 1. Get the latest zip from the [Releases page](../../releases) (look under "Assets").
-2. Extract it, double-click `TextCorrector.exe` and download a model.
+2. Extract it, double-click `TextCorrector.exe` and choose a language model inside.
 
-No Python, no separate Ollama installation and no virtual environment are needed.
+No prior Python or Ollama installation is needed.
 See [The ready-to-use zip](#the-ready-to-use-zip) for details.
 
 **Requirements:** Windows 10 or 11 (64-bit). About 1.5 GB to download, a few GB of disk space once
-extracted, and 3 to 10 GB for one of the language models you chose. The computer needs enough free
-memory (RAM or graphics memory) for the model you choose; the Models tab shows roughly how much
-each one needs. A graphics card is optional but makes text correction faster.
+extracted, and 3 to 10 GB depending on the language model you chose. A graphics card is optional but makes text correction faster.
+The computer needs enough free memory (RAM or graphics memory) for the model you choose; the Models tab shows roughly how much
+each one needs.
 
 ## How it works
 
-1. You press a hotkey.
+1. Highlight some text and press a hotkey.
 2. The tool copies your selection, sends it to a local Ollama model and asks for a corrected
    version (typos, spelling, casing and punctuation; wording and meaning stay the same).
-3. The answer is checked and, depending on the hotkey, either pasted over your selection, or put on
+3. The answer is quickly checked and, depending on the hotkey, either pasted over your selection, or put on
    the clipboard, ready for you to paste with Ctrl+V.
 
-Long texts are corrected paragraph by paragraph, so small models keep track and a part the model
-keeps getting wrong is left as it was (the activity log says so) instead of losing the whole text.
+Long texts are corrected paragraph by paragraph, so small models can keep track. If a paragraph keeps getting wrong
+it is left as it was (the activity log says so) instead of losing the whole text.
 If the model's answer does not look like a plain correction (for example extra commentary or
 changed line breaks), nothing is pasted for that part and the program tells you why.
 
@@ -59,8 +60,6 @@ The window has three tabs:
   **extra instructions to the model** are set here too, below the list.
 - **Settings:** one control for every setting, with a description. Every change is applied and
   saved as soon as you make it.
-
-At the bottom left of every tab is the credit line.
 
 The tray icon is there from the start (unless you turn it off in Settings). When you minimize the
 window it disappears into the tray (next to the clock); click the tray icon, or choose Open in its
@@ -106,10 +105,11 @@ size.
 
 ## Settings
 
-The Models tab also holds the **Language** of your text (English by default, "Detect automatically"
-lets the model decide; experimental for other languages) and the **Extra instructions to model**
-(plain sentences added to what the model is told for every correction, for example "Use British
-spelling." Keep it short). The Settings tab holds the rest:
+The Models tab also allows for adjusting the expected **Language** of your text (English by default, which tends to work best. Alternatively, this can be set to "Detect automatically" or other languages, but using the modes might yield poor results).
+The **Extra instructions to model** allows plain sentences to be added to what the model is told for every correction, for example "Use British
+spelling." Although these instructions should be kept short as they tend to confuse smaller language models. 
+
+More settings are in the settings tab:
 
 | Setting | What it does |
 | --- | --- |
@@ -134,31 +134,30 @@ file from the program's own template, so comments you added yourself are not kep
 
 ## The ready-to-use zip
 
-This is the version for casual users. Everything it needs is in its own folder.
+This is the version for casual users. Everything the text corrector needs is in its own folder and install is easy.
 
 1. Extract the zip to a folder you can write to, for example `C:\Users\YourName\TextCorrector`.
    Do not run the program from inside the zip.
 2. Double-click `TextCorrector.exe`. Windows may warn about an unknown publisher the first
    time ("More info", then "Run anyway"), this is because the program is not signed as of writing this.
 3. On first launch there is no large model yet, so the program opens on the Models tab. Press Download
-   next to one (a few gigabytes, once). The progress is shown, and the model is used as soon as
-   it is ready. Later you can download others there and switch between them.
-4. To remove everything, close the program (tray icon, Quit) and delete the folder, or
-   double-click `uninstall.bat` in it. Nothing else on the PC was changed.
+   next to one of the listed models (a few gigabytes, once). The progress is shown, and the model is used as soon as
+   it is ready. Later you can download to try and switch between.
+4. To remove everything, close the program (tray icon, Quit) and run the `uninstall.bat` or simply delete the TextCorrector folder.
 
 ### The built-in engine
 
-The zip contains its own copy of Ollama's standalone service, renamed to `Text-Corrector-Engine.exe`,
-to not confuse inexperienced users of where the process started from. The program starts it in the background when it
-opens and stops it when it closes. It does not install anything in Windows, has no tray icon or
-autostart of its own, and does not conflict with an Ollama you may have installed yourself: it uses
+The zip contains its own copy of Ollama's standalone service, although it is renamed to `Text-Corrector-Engine.exe`,
+to not confuse users unfamiliar with Ollama. The program starts the engine in the background when it
+opens and stops it when it closes. The engine has no tray icon or
+autostart of its own, and does not conflict a normal Ollama installation may have installed yourself: it uses
 a free local port, and keeps its models, settings and temporary files in the program's folder
 (`models` and `data`). Its log is `data\logs\ollama.log`.
 
 Graphics cards: NVIDIA cards are used through CUDA, and AMD and Intel cards (also the ones
 built into the processor) through Vulkan, with the normal graphics drivers. When no graphics
 card can be used, the processor does the work, which is slower. The Model panel on the Home
-page shows how much of the model sits on the graphics card and how much in system RAM.
+page shows how much of the model sits on the graphics card VRAM and how much in system RAM.
 
 To use your own Ollama instead of the built-in one, delete or rename the `ollama` folder next
 to the program, and set your Ollama address in the config file.
@@ -213,3 +212,8 @@ are listed in `THIRD_PARTY_NOTICES.txt` in the zip. The source code is not publi
 
 Bug reports and ideas are welcome as GitHub issues. When reporting a problem, press **Copy
 diagnostics** on the Home page and paste the result into the issue.
+
+## Known bugs:
+
+- Right clicking the tray icon stops the program with an error.
+- New installations sometimes can’t run the engine on first try, but after closing the program and trying again it works.
