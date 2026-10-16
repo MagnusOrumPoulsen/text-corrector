@@ -132,13 +132,13 @@ file from the program's own template, so comments you added yourself are not kep
 
 ## The ready-to-use zip
 
-This is the version for other people. Everything it needs is in its own folder.
+This is the version for casual users. Everything it needs is in its own folder.
 
 1. Extract the zip to a folder you can write to, for example `C:\Users\YourName\TextCorrector`.
    Do not run the program from inside the zip.
 2. Double-click `TextCorrector.exe`. Windows may warn about an unknown publisher the first
-   time ("More info", then "Run anyway"), because the program is not signed.
-3. The first time there is no model yet, so the program opens on the Models tab. Press Download
+   time ("More info", then "Run anyway"), this is because the program is not signed as of writing this.
+3. On first launch there is no large model yet, so the program opens on the Models tab. Press Download
    next to one (a few gigabytes, once). The progress is shown, and the model is used as soon as
    it is ready. Later you can download others there and switch between them.
 4. To remove everything, close the program (tray icon, Quit) and delete the folder, or
@@ -146,8 +146,8 @@ This is the version for other people. Everything it needs is in its own folder.
 
 ### The built-in engine
 
-The zip contains its own copy of Ollama's standalone service, renamed `Text-Corrector-Engine.exe`,
-to make things easier for inexperienced users. The program starts it in the background when it
+The zip contains its own copy of Ollama's standalone service, renamed to `Text-Corrector-Engine.exe`,
+to not confuse inexperienced users of where the process started from. The program starts it in the background when it
 opens and stops it when it closes. It does not install anything in Windows, has no tray icon or
 autostart of its own, and does not conflict with an Ollama you may have installed yourself: it uses
 a free local port, and keeps its models, settings and temporary files in the program's folder
