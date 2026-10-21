@@ -1,56 +1,56 @@
 # Text Corrector
 
-A simple Windows tool that fixes typos, spelling mistakes, grammar etc. using a local language model. Select some text in any
+A small Windows tool that fixes typos using a local language model. Select some text in any
 program or window, press a hotkey, and a moment later the corrected text is ready.
-Everything runs on your own computer, using [Ollama](https://ollama.com) as the engine. After a
-one-time download of one of the suggested language model the whole thing is run offline. 
-You can also download and run custom Ollama language models that are not among the suggested, although this is untested.
+Everything runs on your own computer, using [Ollama](https://ollama.com) as the engine. After the
+one-time download of a language model, nothing you correct ever leaves your PC.
 
 ![Text Corrector in action](docs/images/showcase.gif)
 
 ## Download and use
 
 1. Get the latest zip from the [Releases page](../../releases) (look under "Assets").
-2. Extract it, double-click `TextCorrector.exe` and choose a language model inside.
+2. Extract it, double-click `TextCorrector.exe` and download a model.
 
-No prior Python or Ollama installation is needed.
+No Python, no separate Ollama installation and no virtual environment are needed.
 See [The ready-to-use zip](#the-ready-to-use-zip) for details.
 
 **Requirements:** Windows 10 or 11 (64-bit). About 1.5 GB to download, a few GB of disk space once
-extracted, and 3 to 10 GB depending on the language model you chose. A graphics card is optional but makes text correction faster.
-The computer needs enough free memory (RAM or graphics memory) for the model you choose; the Models tab shows roughly how much
-each one needs.
+extracted, and 3 to 10 GB for each language model you download. The computer needs enough free
+memory (RAM or graphics memory) for the model you choose; the Models tab shows roughly how much
+each one needs. A graphics card is optional but makes it faster.
 
 ## How it works
 
-1. Highlight some text and press a hotkey.
+1. You press a hotkey.
 2. The tool copies your selection, sends it to a local Ollama model and asks for a corrected
    version (typos, spelling, casing and punctuation; wording and meaning stay the same).
-3. The answer is quickly checked and, depending on the hotkey, either pasted over your selection, or put on
+3. The answer is checked and, depending on the hotkey, either pasted over your selection, or put on
    the clipboard, ready for you to paste with Ctrl+V.
 
-Long texts are corrected paragraph by paragraph, so small models can keep track. If a paragraph keeps getting wrong
-it is left as it was (the activity log says so) instead of losing the whole text.
+Long texts are corrected paragraph by paragraph, so small models keep track and a part the model
+keeps getting wrong is left as it was (the activity log says so) instead of losing the whole text.
 If the model's answer does not look like a plain correction (for example extra commentary or
 changed line breaks), nothing is pasted for that part and the program tells you why.
 
-## Showcase and Screenshots
+## Screenshots
 
-
-![The Home page](docs/images/showcase/.gif)
 ![The Home page](docs/images/main.png)
 ![The Models tab](docs/images/models.png)
 ![The Settings tab](docs/images/Settings.png)
 
 ## Using the program
 
-The window has three tabs:
+The window has four tabs:
 
-- **Home:** the status, the model panel, the last correction (before and after) and a list of what
-  the program has done. The model panel shows whether the model is loaded in memory, how much
+- **Home:** the status, the model panel and a list of what the program has done. The model panel shows whether the model is loaded in memory, how much
   memory it uses (or roughly needs), and when it is unloaded after a period without use (the
   "Keep model loaded for" setting). **Load model now** loads it ahead of time, so the next
   correction does not have to wait for it. The program loads the model by itself when needed.
+- **Last correction:** the text before (left) and after (right) the latest correction, as large as
+  the window allows, with a scroll bar inside each box when a text is longer. The Before box is
+  filled the moment you press the hotkey, and the After box shows "Correcting..." until the result
+  is ready. What differs is colored (see below).
 - **Models:** the models you can use. Download as many as you like (one at a time; the program
   is locked with a progress window until it is done), choose which one to use with **Use this
   model**, and **Remove** the ones you do not need. Each model shows its download size, roughly
@@ -61,10 +61,11 @@ The window has three tabs:
 - **Settings:** one control for every setting, with a description. Every change is applied and
   saved as soon as you make it.
 
+At the bottom left of every tab is the credit line.
+
 The tray icon is there from the start (unless you turn it off in Settings). When you minimize the
 window it disappears into the tray (next to the clock); click the tray icon, or choose Open in its
-menu, to bring it back. Choose Quit in the tray menu, press the quit hotkey, or close the window to
-stop the program. On Windows 11 a new tray icon may be hidden under the small arrow next to the
+menu, to bring it back. Choose Quit in the tray menu, or close the window, to stop the program. On Windows 11 a new tray icon may be hidden under the small arrow next to the
 clock until you drag it out. If the tray cannot be used, the activity log says why and the window
 minimizes to the taskbar as usual. The background color of the tray icon, of the window icon and of
 the icon in the taskbar shows the status: green is ready, yellowish is ready but the model is not
@@ -81,16 +82,23 @@ takes a moment for the first correction.
 | --- | --- |
 | F10 | **Correct and paste:** corrects the selected text and pastes the result over it |
 | F9 | **Correct to clipboard:** corrects the selected text too, but does not paste: the corrected text waits on the clipboard until you press Ctrl+V. Handy for long texts, so you need not wait for the result |
-| Ctrl+Alt+F12 | Quit |
+| Ctrl+Alt+F12 | **Load/unload model:** loads the model into memory when it is not loaded (so the next correction is fast), and unloads it, to free the memory, when it is loaded |
+| Ctrl+Alt+F11 | **Show/hide window:** minimizes the window (to the tray, or the taskbar) or brings it back |
 
-All three hotkeys can be changed in the settings. Windows reserves a hotkey for this program
+All four hotkeys can be changed in the settings. Windows reserves a hotkey for this program
 while it runs, so the program in front never receives it. This matters because many programs use
 keys such as F10 for their own menu. If another program already uses a combination, this program
 says so and you can choose another one.
 
-After a correction, the **Before** and **After** boxes color what differs: changed words yellow,
-removed words red, added words green, punctuation gray, and words that moved blue. You can turn
-this off in Settings.
+After a correction, the **Before** and **After** boxes on the Last correction tab color what
+differs: changed words yellow, removed words red, added words green, punctuation gray, and words
+that moved blue. You can turn this off in Settings.
+
+Now and then a model gives an answer that cannot be used, for example it leaves words out, even
+though the same text worked a moment before. The program notices (it also rejects answers that lost
+several words) and then asks the model again, up to **Retries before giving up** times (2 by
+default), with a slightly higher temperature so that the answer can differ. If every try fails, that
+part of the text is left as it was and the activity log says so.
 
 Only one copy of the program runs at a time: starting it again (for example from a taskbar pin)
 brings the running window forward. Texts in the window, such as the last correction, can be marked
@@ -105,65 +113,76 @@ size.
 
 ## Settings
 
-The Models tab also allows for adjusting the expected **Language** of your text (English by default, which tends to work best. Alternatively, this can be set to "Detect automatically" or other languages, but using the modes might yield poor results).
-The **Extra instructions to model** allows plain sentences to be added to what the model is told for every correction, for example "Use British
-spelling." Although these instructions should be kept short as they tend to confuse smaller language models. 
-
-More settings are in the settings tab:
+The Models tab also holds the **Language** of your text (English by default, "Detect automatically"
+lets the model decide; experimental for other languages) and the **Extra instructions to model**
+(plain sentences added to what the model is told for every correction, for example "Use British
+spelling." Keep it short). The Settings tab holds the rest:
 
 | Setting | What it does |
 | --- | --- |
-| Hotkeys | The key combinations. Click a button and press the new combination, or Esc to keep the old one |
+| Hotkeys | The four key combinations. Click a button and press the new combination, or Esc to keep the old one |
 | Keep model loaded for | How long the model stays in memory after the last use, as hours and minutes. **Forever** keeps it loaded until the program is closed |
 | Request timeout | How long to wait for the model before giving up |
+| Retries before giving up | How many more times to ask the model when its answer cannot be used (0 to 10, default 2). Every extra try takes extra time |
 | Tray | Minimize to the tray (default), or to the taskbar |
 | Start with Windows | Starts the program in the tray when you log in, without loading the model, so no memory is used until you correct something. Installed program only |
 | Window size | **Reset window size** goes back to the automatic size from the next start |
 | Processor (built-in engine) | Auto uses the graphics card (NVIDIA, AMD or Intel) when it can; CPU only uses just the processor. Try CPU only if the program crashes or behaves strangely on a PC |
 | Sounds | Short sounds when the program is ready, when a correction starts, finishes, finds nothing to fix, or fails. Each has its own sound |
 | Sound volume | The volume of all sounds together, from 0 (silent) to 100 (loudest) |
-| Highlight changes | After a correction, the Before and After boxes color what differs: changed words yellow, removed words red, added words green, punctuation gray, and words that moved blue |
+| Highlight changes | After a correction, the Before and After boxes (Last correction tab) color what differs: changed words yellow, removed words red, added words green, punctuation gray, and words that moved blue |
 
-The settings are stored in `data\config.toml` in the program's folder, created on first start
-with explanations next to every setting. Two settings are only in the file: the Ollama `url` (used
-only with your own Ollama, not with the built-in engine) and the `temperature` (how much the answers
-may vary; 0 is the most predictable). You can edit the file by hand too; restart the program for
+The settings are stored in `%APPDATA%\TextCorrector\config.toml` when you run from the source
+(in `data\config.toml` in the program's folder for the zip), created on first start with
+explanations next to every setting. Three settings are only in the file: the Ollama `url` (used
+with your own Ollama, not with the built-in engine), the `temperature` (how much the answers
+may vary; 0 is the most predictable) and the `retry_temperature` (the temperature of the first
+extra try after an unusable answer, 0.3 by default; each further try adds this much, up to 1). You can edit the file by hand too; restart the program for
 those changes to apply. If a setting is invalid, the program tells you which one and does not
-start. Delete the file to get a fresh copy with the defaults. Saving from the program rewrites the
-file from the program's own template, so comments you added yourself are not kept.
+start. Delete the file to get a fresh copy with the defaults. Set the environment variable
+`CORRECTOR_CONFIG` to use a file in another location. Saving from the program rewrites the file
+from the program's own template, so comments you added yourself are not kept.
+
+By default a new installation opens at the automatic window size. To choose the size new installs
+start with, set `width` and `height` in the `[window]` section of the config file (or the defaults
+of `Window` in `text_corrector/settings.py` before building); `0` means automatic.
 
 ## The ready-to-use zip
 
-This is the version for casual users. Everything the text corrector needs is in its own folder and install is easy.
+This is the version for other people. Everything it needs is in its own folder.
 
 1. Extract the zip to a folder you can write to, for example `C:\Users\YourName\TextCorrector`.
    Do not run the program from inside the zip.
 2. Double-click `TextCorrector.exe`. Windows may warn about an unknown publisher the first
-   time ("More info", then "Run anyway"), this is because the program is not signed as of writing this.
-3. On first launch there is no large model yet, so the program opens on the Models tab. Press Download
-   next to one of the listed models (a few gigabytes, once). The progress is shown, and the model is used as soon as
-   it is ready. Later you can download to try and switch between.
-4. To remove everything, close the program (tray icon, Quit) and run the `uninstall.bat` or simply delete the TextCorrector folder.
+   time ("More info", then "Run anyway"), because the program is not signed.
+3. The first time there is no model yet, so the program opens on the Models tab. Press Download
+   next to one (a few gigabytes, once). The progress is shown, and the model is used as soon as
+   it is ready. Later you can download others there and switch between them.
+4. To remove everything, close the program (tray icon, Quit) and delete the folder, or
+   double-click `uninstall.bat` in it. Nothing else on the PC was changed.
 
 ### The built-in engine
 
-The zip contains its own copy of Ollama's standalone service, although it is renamed to `Text-Corrector-Engine.exe`,
-to not confuse users unfamiliar with Ollama. The program starts the engine in the background when it
-opens and stops it when it closes. The engine has no tray icon or
-autostart of its own, and does not conflict a normal Ollama installation may have installed yourself: it uses
+The zip contains its own copy of Ollama's standalone service, renamed `Text-Corrector-Engine.exe`,
+to make things easier for inexperienced users. The program starts it in the background when it
+opens and stops it when it closes. It does not install anything in Windows, has no tray icon or
+autostart of its own, and does not conflict with an Ollama you may have installed yourself: it uses
 a free local port, and keeps its models, settings and temporary files in the program's folder
 (`models` and `data`). Its log is `data\logs\ollama.log`.
 
 Graphics cards: NVIDIA cards are used through CUDA, and AMD and Intel cards (also the ones
 built into the processor) through Vulkan, with the normal graphics drivers. When no graphics
 card can be used, the processor does the work, which is slower. The Model panel on the Home
-page shows how much of the model sits on the graphics card VRAM and how much in system RAM.
+page shows how much of the model sits on the graphics card and how much in system RAM.
 
 To use your own Ollama instead of the built-in one, delete or rename the `ollama` folder next
 to the program, and set your Ollama address in the config file.
 
 ## Troubleshooting
 
+- **"The model's answer left out N words"**: the model dropped part of the text, which a proofreader
+  should not do, so the answer was not used. The program tried again (see Retries before giving up).
+  If it keeps happening with one model, try another one in the Models tab: small models do this more.
 - **"The model did not answer in the expected format"**: the model replied with something other
   than the JSON answer the program asks for. Try again, or choose another model in the Models
   tab. Thinking models (such as Gemma 4) are asked not to think, and the program also accepts a
@@ -183,12 +202,96 @@ to the program, and set your Ollama address in the config file.
   The activity log on the Home tab says if the tray icon could not be started.
 - **Nothing appears when the program starts**: look for the tray icon. If the program stopped
   with an error, a message box says so, and details are saved in `data\error.log`.
+- **"Could not reach Ollama"** (running from the source): start Ollama and try again.
+- **HTTP 404 from Ollama**: the model is not installed. Run `ollama pull <model name>`.
+- **To see what the model answered**: set `CORRECTOR_DEBUG=1` before starting (in `cmd`:
+  `set CORRECTOR_DEBUG=1`) and use the console version. The raw reply is shown after every request.
+- In the source, the delays the program waits for copy and paste are at the top of `textio.py`.
 
 ## Known limitations
 
 - Only text on the clipboard is restored afterwards when using correct and paste (F10). An image or file you had copied is lost.
 - Language support depends on the model and is experimental. Results are likely to be poor in languages other than English.
 - The program is not code-signed, so Windows shows a warning the first time. Some antivirus programs also flag programs made with PyInstaller by mistake.
+
+## Running from the source
+
+For development. The ready-to-use zip above is made from this project, and it needs none of this.
+In this mode the program uses your own Ollama server instead of the built-in engine.
+
+### Project folder structure
+
+```
+Text-Corrector\                  <- the project folder
+    env\                         <- the virtual environment
+    text_corrector\              <- the program (all its .py files; the folder name matters)
+    packaging\                   <- build.bat, build_release.py, uninstall.bat, ... (for the zip)
+    requirements.txt, README.md, run.bat, run_console.bat
+```
+
+`python packaging\build_release.py --check` checks that everything is in the right place.
+
+### Requirements
+
+- Windows
+- Python 3.11 or newer (older versions also work if you run `pip install tomli`)
+- [Ollama](https://ollama.com), running, with a model installed. The default model is
+  installed with `ollama pull gemma3:4b`
+
+### Installation
+
+```
+python -m venv env
+env\Scripts\activate
+pip install -r requirements.txt
+```
+
+### Running
+
+Double-click `run.bat`. The program opens as a normal window, without a console. Keep `run.bat`
+in the project folder, next to the `env` folder and the `text_corrector` folder.
+
+The original console version is also available: double-click `run_console.bat`, or run
+`python -m text_corrector --console`. Press Ctrl+O in the console window to open a text version of
+the settings screen. Press Enter to go back; changes are saved as you make them.
+
+### Building the zip
+
+On Windows, in the project folder with the virtual environment in `env`, run
+`packaging\build.bat`. It packs the program with PyInstaller, adds Ollama's standalone
+Windows zip (about 1.5 GB), a short readme, license notices and `uninstall.bat`, and makes
+`release\TextCorrector-<date>.zip`. The program ends up in `dist\TextCorrector`. The zip does not
+contain the source code (add `--include-source` if you want that). The options and details are in
+`packaging\BUILDING.txt`.
+
+### Choosing a model
+
+Small models are fast but make more mistakes, and some are much better than others in languages
+other than English. To compare models on your own texts, install the candidates with
+`ollama pull` and run:
+
+```
+python -m text_corrector.compare gemma4:e4b gemma4:e2b gemma3:4b
+```
+
+Each model corrects the same test texts (one Danish and one English text are built in). The
+result is scored against the correct version, where 100 means identical, and the time per text is
+shown. The score is a rough character-level similarity, so look at the printed texts as well.
+The score of the uncorrected text is shown for reference: a model that scores lower than that made
+the text worse.
+
+To use your own test texts, make a file such as `cases.toml` and add `--cases cases.toml`:
+
+```toml
+[[case]]
+name = "My Danish test"
+language = "Danish"
+text = "text with typos"
+expected = "the correct version of the text"
+```
+
+The model names above are examples. Check the Ollama library for what is available, and update
+Ollama first if a newer model is not recognized.
 
 ## Credits
 
@@ -203,18 +306,12 @@ settings, text checks, feedback sounds and a graphical window.
 
 ## License
 
-Text Corrector is free to use under the [MIT License](LICENSE). The built-in engine is
+The source code is released under the [MIT License](LICENSE). The built-in engine is
 [Ollama](https://github.com/ollama/ollama) (MIT), and the language models you download are
 separate works with their own licenses (see each model's page). The libraries the program uses
-are listed in `THIRD_PARTY_NOTICES.txt` in the zip. The source code is not published yet.
+are listed in `packaging\THIRD_PARTY_NOTICES.txt`.
 
 ## Feedback
 
 Bug reports and ideas are welcome as GitHub issues. When reporting a problem, press **Copy
 diagnostics** on the Home page and paste the result into the issue.
-
-## Known bugs:
-
-- Some text can fool the model and also pass the text check afterwards. For instance, correcting "Lets prooceed in danish" produced: "Lad os fortsætte på dansk."
-- Right clicking the tray icon can stop the program with an error.
-- New installations sometimes can’t run the engine on first try, but after closing the program and trying again it works.
