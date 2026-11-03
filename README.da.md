@@ -2,6 +2,8 @@
 
 [English](README.md) | **Dansk**
 
+**[Hent den nyeste version af Text Corrector](../../releases/latest)** (vælg `TextCorrector-<version>.zip` under "Assets")
+
 Et Windows-værktøj, der er nemt at installere og bruge: markér noget tekst, tryk på en
 genvejstast, og stavefejlene bliver rettet af en sprogmodel, der kører på din egen computer.
 Alt kører lokalt, med [Ollama](https://ollama.com) som motor. Når du først har hentet en
@@ -14,7 +16,7 @@ model.
 
 ## Hent og brug
 
-1. Hent `TextCorrector-1.0.0.zip` (eller den nyeste version) fra [Releases-siden](../../releases) (se under "Assets").
+1. Hent `TextCorrector-1.0.0.zip` (eller den nyeste version) fra [den nyeste udgivelse](../../releases/latest) (se under "Assets").
 2. Pak den ud, dobbeltklik på `TextCorrector.exe`, og hent en model.
 
 Du behøver ikke installere Python eller Ollama, og der skal ikke sættes noget virtuelt miljø op.
