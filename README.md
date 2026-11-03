@@ -1,8 +1,9 @@
 # Text Corrector
 
 A Windows tool that fixes the typos in any text you highlight, with a language model running on
-your own PC. / Et Windows-værktøj, der retter stavefejl i den tekst, du markerer, med en sprogmodel,
-der kører på din egen pc.
+your PC. 
+/ Et Windows-værktøj, der retter fejl i den tekst, du markerer, med en sprogmodel,
+som kører lokalt på din pc.
 
 **[Download the latest version / Hent den nyeste version](../../releases/latest)**
 
