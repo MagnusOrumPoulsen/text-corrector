@@ -6,7 +6,7 @@ der kører på din egen pc.
 
 [**Download the latest version / Hent den nyeste version**](../../releases/latest)
 
-!\[Text Corrector in action](docs/images/showcase.gif)
+![Text Corrector in action](docs/images/showcase.gif)
 
 Choose your language below / Vælg dit sprog nedenfor:
 
@@ -58,8 +58,8 @@ Everything else is explained in the program itself.
 
 ## Screenshots
 
-!\[The Last correction tab](docs/images/main.png)
-!\[The Settings tab](docs/images/Settings.png)
+![The Last correction tab](docs/images/main.png)
+![The Settings tab](docs/images/Settings.png)
 
 ## Known limitations
 
@@ -76,7 +76,7 @@ into the issue.
 ## Source code
 
 The source code of each version is attached to its release as `TextCorrector-<version>-source.zip`.
-[SOURCE\_README.md](SOURCE_README.md) explains how to run it and how to build the program yourself.
+[SOURCE_README.md](SOURCE_README.md) explains how to run it and how to build the program yourself.
 
 ## Credits and license
 
@@ -87,12 +87,12 @@ version has since been rewritten with its own code.
 The source code is released under the [MIT License](LICENSE). The built-in engine is
 [Ollama](https://github.com/ollama/ollama) (MIT), and the language models you download have their
 own licenses (see each model's page). The libraries the program uses are listed in
-[THIRD\_PARTY\_NOTICES.txt](THIRD_PARTY_NOTICES.txt).
+[THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt).
 
 </details>
 <!-- ENGLISH END -->
 
-<!-- DANISH START: made from README.da.md by packaging\\update\_readme.py; edit README.da.md, not this part -->
+<!-- DANISH START: made from README.da.md by packaging\update_readme.py; edit README.da.md, not this part -->
 
 <details>
 <summary><b>Dansk: klik her for at læse på dansk</b></summary>
@@ -142,8 +142,8 @@ Resten er forklaret i selve programmet.
 
 ## Skærmbilleder
 
-!\[Fanen Seneste rettelse](docs/images/main.png)
-!\[Fanen Indstillinger](docs/images/Settings.png)
+![Fanen Seneste rettelse](docs/images/main.png)
+![Fanen Indstillinger](docs/images/Settings.png)
 
 ## Kendte begrænsninger
 
@@ -161,7 +161,7 @@ dit issue.
 ## Kildekode
 
 Kildekoden til hver version ligger ved dens udgivelse som `TextCorrector-<version>-source.zip`.
-[SOURCE\_README.md](SOURCE_README.md) (på engelsk) forklarer, hvordan du kører den, og hvordan du
+[SOURCE_README.md](SOURCE_README.md) (på engelsk) forklarer, hvordan du kører den, og hvordan du
 selv bygger programmet.
 
 ## Tak og licens
@@ -173,7 +173,7 @@ version er siden blevet skrevet om med sin egen kode.
 Kildekoden er udgivet under [MIT-licensen](LICENSE). Den indbyggede motor er
 [Ollama](https://github.com/ollama/ollama) (MIT), og de sprogmodeller, du henter, har deres egne
 licenser (se hver models side). De biblioteker, programmet bruger, står i
-[THIRD\_PARTY\_NOTICES.txt](THIRD_PARTY_NOTICES.txt).
+[THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt).
 
 </details>
 

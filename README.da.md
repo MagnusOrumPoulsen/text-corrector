@@ -50,7 +50,6 @@ Resten er forklaret i selve programmet.
 ## Skærmbilleder
 
 ![Fanen Seneste rettelse](docs/images/main.png)
-![Fanen Modeller](docs/images/models.png)
 ![Fanen Indstillinger](docs/images/Settings.png)
 
 ## Kendte begrænsninger

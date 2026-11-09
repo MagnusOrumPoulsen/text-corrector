@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+env/
+venv/
+.venv/
+
+# Build output (large, made by packaging\build.bat)
+build/
+dist/
+release/
+*.spec
+
+# Local data of a running copy
+data/
+models/
+ollama/
+portable.txt
+config.toml
+error.log
+
+# Editors and system files
+.vscode/
+.idea/
+.spyder-py3/
+Thumbs.db
+.DS_Store
