@@ -58,7 +58,7 @@ Everything else is explained in the program itself.
 
 ## Screenshots
 
-![The Last correction tab](docs/images/main.png)
+![The Last correction tab](docs/images/Main.png)
 ![The Settings tab](docs/images/Settings.png)
 
 ## Known limitations
@@ -142,7 +142,7 @@ Resten er forklaret i selve programmet.
 
 ## Skærmbilleder
 
-![Fanen Seneste rettelse](docs/images/main.png)
+![Fanen Seneste rettelse](docs/images/Main.png)
 ![Fanen Indstillinger](docs/images/Settings.png)
 
 ## Kendte begrænsninger
