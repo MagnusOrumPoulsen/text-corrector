@@ -137,7 +137,7 @@ og et ikon i systembakken, hvis farve viser status.
 i, prøves igen sætning for sætning eller lades uændret; din tekst går aldrig tabt.
 * **Du vælger modellen.** Små, mellemstore og store modeller at hente, enhver anden model fra
 Ollama-biblioteket og et klart overblik over, om den kører på grafikkortet eller processoren.
-* **Autodetekterer og virker med de fleste sprog (Tested med dansk engelsk).**
+* **Autodetekterer og virker med de fleste sprog (Testet med dansk og engelsk).**
 * **Avancerede indstillinger** til at teste din egen systemprompt og dit eget eksempel.
 
 Resten er forklaret i selve programmet.
