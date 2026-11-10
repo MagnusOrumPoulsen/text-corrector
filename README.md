@@ -1,7 +1,8 @@
 # Text Corrector
 
 English summary: A Windows tool that fixes the typos in any text you highlight, with a language model running on
-your own PC.
+your own PC. 
+
 Danish summary: Et Windows-værktøj, der retter stavefejl i den tekst, du markerer, med en sprogmodel,
 der kører på din egen pc.
 
