@@ -1,7 +1,8 @@
 # Text Corrector
 
-A Windows tool that fixes the typos in any text you highlight, with a language model running on
-your own PC. / Et Windows-værktøj, der retter stavefejl i den tekst, du markerer, med en sprogmodel,
+English summary: A Windows tool that fixes the typos in any text you highlight, with a language model running on
+your own PC.
+Danish summary: Et Windows-værktøj, der retter stavefejl i den tekst, du markerer, med en sprogmodel,
 der kører på din egen pc.
 
 [**Download the latest version / Hent den nyeste version**](../../releases/latest)
@@ -13,7 +14,7 @@ Choose your language below / Vælg dit sprog nedenfor:
 <!-- ENGLISH START: edit the English text here, between these two markers -->
 
 <details>
-<summary><b>English: click here to read in English</b></summary>
+<summary><b>English:</b></summary>
 
 A simple-to-install-and-use Windows tool: highlight some text, press a hotkey, and it fixes the
 typos using a language model running on your own computer, with [Ollama](https://ollama.com) as
@@ -95,7 +96,7 @@ own licenses (see each model's page). The libraries the program uses are listed 
 <!-- DANISH START: made from README.da.md by packaging\update_readme.py; edit README.da.md, not this part -->
 
 <details>
-<summary><b>Dansk: klik her for at læse på dansk</b></summary>
+<summary><b>Dansk:</b></summary>
 
 Et Windows-værktøj, der er nemt at installere og bruge: markér noget tekst, tryk på en
 genvejstast, og stavefejlene bliver rettet af en sprogmodel, der kører på din egen computer, med
