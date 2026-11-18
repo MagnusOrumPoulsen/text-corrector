@@ -6,7 +6,7 @@
 
 Et Windows-værktøj, der er nemt at installere og bruge: markér noget tekst, tryk på en
 genvejstast, og stavefejlene bliver rettet af en sprogmodel, der kører på din egen computer, med
-[Ollama](https://ollama.com) som motor. Når du først har hentet en sprogmodel, virker programmet
+[Ollama](https://ollama.com) i baggrunden. Når du først har hentet en sprogmodel, virker programmet
 uden internet.
 
 **Privatliv:** din tekst forlader aldrig din pc. Programmet bruger kun internettet, når du henter en
@@ -33,7 +33,7 @@ sprogmodel. Et grafikkort (NVIDIA, AMD eller Intel) er ikke nødvendigt, men gø
 
 - **Virker i alle programmer.** Den rettede tekst erstatter din markering eller venter i
   udklipsholderen, indtil du indsætter den.
-- **Virker helt minimeret.** Genvejstaster til det hele (ret, indlæs eller fjern modellen, vis eller
+- **Virker helt minimeret.** Genvejstaster til det hele (ret, indlæs eller frigør modellen, vis eller
   skjul vinduet), korte opdateringer fra systembakken ("Retter...", "Indsat!"), en lyd for hvert trin
   og et ikon i systembakken, hvis farve viser status.
 - **Se, hvad der blev ændret.** Teksten før og efter den seneste rettelse side om side, med
@@ -42,7 +42,8 @@ sprogmodel. Et grafikkort (NVIDIA, AMD eller Intel) er ikke nødvendigt, men gø
   i, prøves igen sætning for sætning eller lades uændret; din tekst går aldrig tabt.
 - **Du vælger modellen.** Små, mellemstore og store modeller at hente, enhver anden model fra
   Ollama-biblioteket og et klart overblik over, om den kører på grafikkortet eller processoren.
-- **Autodetekterer og virker med de fleste sprog (Tested med dansk engelsk).**
+- **Finder selv sproget og virker med de fleste sprog** (testet på dansk og engelsk).
+- **Ret tekst manuelt.** Virker en genvejstast ikke i et program, så skriv eller indsæt teksten i feltet Før på fanen Seneste rettelse, og tryk på Ret.
 - **Avancerede indstillinger** til at teste din egen systemprompt og dit eget eksempel.
 
 Resten er forklaret i selve programmet.
@@ -77,7 +78,7 @@ Inspireret af [ai-typing-assistant](https://github.com/patrickloeber/ai-typing-a
 Loeber (MIT-licens) og [Typing-Assist](https://github.com/x404xx/Typing-Assist) af x404xx; denne
 version er siden blevet skrevet om med sin egen kode.
 
-Kildekoden er udgivet under [MIT-licensen](LICENSE). Den indbyggede motor er
+Kildekoden er udgivet under [MIT-licensen](LICENSE). Programmets baggrundsproces er
 [Ollama](https://github.com/ollama/ollama) (MIT), og de sprogmodeller, du henter, har deres egne
 licenser (se hver models side). De biblioteker, programmet bruger, står i
 [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt).

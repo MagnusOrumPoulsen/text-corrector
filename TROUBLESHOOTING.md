@@ -25,6 +25,12 @@ Status, og indsæt resultatet i et [GitHub-issue](../../issues).
   card's memory; a smaller model (or one with a smaller download size) fits. Some models in the
   Ollama library also come with their own setting that keeps them off the graphics card; Text
   Corrector overrides that while Try GPU is chosen.
+- **The first start takes a long time ("Running first-time setup...")**: the first time, the built-in
+  engine sets itself up and looks for graphics cards, which can take several minutes on a slow PC. Wait
+  until it is done; downloads are locked meanwhile and unlock by themselves.
+- **A hotkey does nothing in one program**: some programs react to the key combination themselves (for
+  example Notepad when Alt is pressed first). Press the keys in another order, change the hotkeys in the
+  settings, or type or paste the text into the Before box on the Last correction tab and press Correct.
 - **"No text was selected, or the app did not copy it"**: the program in front did not copy the
   selection. Some programs need a little longer to copy and paste. If it only happens in one
   program, try another hotkey in the settings.
@@ -50,17 +56,23 @@ Status, og indsæt resultatet i et [GitHub-issue](../../issues).
   JSON-svar, programmet beder om. Prøv igen, eller vælg en anden model på fanen Modeller. Modeller,
   der kan "tænke" (som Gemma 4), bliver bedt om at lade være, og programmet accepterer også et svar
   pakket ind i en kodeblok.
-- **"Den indbyggede motor svarer ikke"**: luk Text Corrector, og start programmet igen. Hvis det
+- **"Baggrundsprocessen svarer ikke"**: luk Text Corrector, og start programmet igen. Hvis det
   bliver ved med at ske, så tryk på **Kopiér diagnostik** på fanen Status, og se
   `data\logs\ollama.log`.
-- **"Den indbyggede motor kunne ikke starte"**: læs `data\logs\ollama.log` i programmets mappe.
-  Antivirusprogrammer blokerer nogle gange motoren (`ollama\Text-Corrector-Engine.exe`); tillad den,
+- **"Baggrundsprocessen kunne ikke starte"**: læs `data\logs\ollama.log` i programmets mappe.
+  Antivirusprogrammer blokerer nogle gange baggrundsprocessen (`ollama\Text-Corrector-Engine.exe`); tillad den,
   eller tilføj programmets mappe som en undtagelse. Hvis loggen nævner grafikkortet eller driveren, så
   sæt "Processor" til "CPU" under Indstillinger.
 - **En model kører på CPU'en, selvom Prøv GPU er valgt**: modellen er måske for stor til
   grafikkortets hukommelse; en mindre model (eller en med en mindre downloadstørrelse) kan være der.
   Nogle modeller i Ollama-biblioteket har også deres egen indstilling, der holder dem væk fra
   grafikkortet; Text Corrector tilsidesætter den, når Prøv GPU er valgt.
+- **Første start tager lang tid ("Kører førstegangsopsætning...")**: første gang sætter baggrundsprocessen
+  sig selv op og leder efter grafikkort, hvilket kan tage flere minutter på en langsom pc. Vent, til den er
+  færdig; hentning af modeller er låst imens og låses op af sig selv.
+- **En genvejstast gør ikke noget i ét program**: nogle programmer reagerer selv på tastekombinationen (for
+  eksempel Notesblok, hvis du trykker på Alt først). Tryk tasterne i en anden rækkefølge, skift genvejstasterne
+  under Indstillinger, eller skriv eller indsæt teksten i feltet Før på fanen Seneste rettelse, og tryk på Ret.
 - **"Der var ingen markeret tekst, eller programmet kopierede den ikke"**: programmet i forgrunden
   kopierede ikke markeringen. Nogle programmer skal bruge lidt længere tid til at kopiere og indsætte.
   Hvis det kun sker i ét program, så prøv en anden genvejstast under Indstillinger.
